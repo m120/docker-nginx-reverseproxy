@@ -14,3 +14,6 @@ $ docker-compose up -d --force-recreate
 - 8080: Proxy port
 - 8123: ngixn status
 - 9090: Prometheus
+
+## Todo
+- [ ] SSL
