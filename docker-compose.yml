@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  nginx_reverseproxy:
+    container_name: nginx_reverseproxy
+    hostname: nginx_reverseproxy
+    image: nginx_reverseproxy
+    build:
+      context: ./nginx/
+      dockerfile: ./Dockerfile
+      args:
+        - PROXY_URL=${PROXY_URL}
+        - TIMEZONE=${TIMEZONE}
+    ports:
+      - ${ALLOW_IPADDR}:8080:8080
+      - ${ALLOW_IPADDR}:8123:8123
+
+  prometheus:
+    container_name: nginx_reverseproxy_prometheus
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - ${ALLOW_IPADDR}:9090:9090
+
+  nginx-prometheus-exporter:
+    container_name: nginx-prometheus-exporter
+    image: nginx/nginx-prometheus-exporter:0.4.2
+    command: -nginx.scrape-uri http://nginx_reverseproxy:8123/
+    restart: always
+
