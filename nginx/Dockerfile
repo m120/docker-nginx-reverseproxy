@@ -10,10 +10,9 @@ RUN apk --update add \
   rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 # ADD: Configs
-ADD ${pwd}/nginx.conf /etc/nginx/nginx.conf
+COPY ${pwd}/nginx.conf /etc/nginx/nginx.conf
 
 # SETTING:
-
 RUN set -x \
     # Timezone
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
