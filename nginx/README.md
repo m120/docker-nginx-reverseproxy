@@ -7,7 +7,8 @@ $ docker build -f Dockerfile -t nginx-$(date +%y%m%d) --build-arg TIMEZONE="Asia
 
 ### run
 ```
-$ docker rm nginx-$(date +%y%m%d) && docker run --name nginx-$(date +%y%m%d) -p8080:8080 -p8123:8123 nginx-$(date +%y%m%d)
+$ docker rm nginx-$(date +%y%m%d)
+$ docker run --name nginx-$(date +%y%m%d) -p8080:8080 -p8123:8123 nginx-$(date +%y%m%d)
 ```
 
 ## Verify

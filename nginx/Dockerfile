@@ -10,7 +10,7 @@ RUN apk --update add \
   rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 # ADD: Configs
-ADD nginx.conf /etc/nginx/nginx.conf
+ADD ${pwd}/nginx.conf /etc/nginx/nginx.conf
 
 # SETTING:
 
