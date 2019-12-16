@@ -9,8 +9,8 @@ RUN apk --update add \
   rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 # ADD: Configs
-ADD ${pwd}/nginx.conf /etc/nginx/nginx.conf
-ADD ${pwd}/run.sh ./
+ADD nginx//nginx.conf /etc/nginx/nginx.conf
+ADD nginx/run.sh ./
 
 # SETTING:
 RUN set -x && \
