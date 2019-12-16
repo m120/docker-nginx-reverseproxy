@@ -2,13 +2,13 @@
 
 ### build
 ```
-$ docker build -f Dockerfile -t nginx-$(date +%y%m%d) --build-arg TIMEZONE="Asia/Tokyo" --build-arg PROXY_URL="http://checkip.amazonaws.com" --no-cache .
+$ docker build -f Dockerfile -t nginx-$(date +%y%m%d) --no-cache .
 ```
 
 ### run
 ```
 $ docker rm nginx-$(date +%y%m%d)
-$ docker run --name nginx-$(date +%y%m%d) -p8080:8080 -p8123:8123 nginx-$(date +%y%m%d)
+$ docker run --name nginx-$(date +%y%m%d) -e TIMEZONE=Asia/Tokyo -e PROXY_URL=http://google.com/ -p8080:8080 -p8123:8123 nginx-$(date +%y%m%d)
 ```
 
 ## Verify
