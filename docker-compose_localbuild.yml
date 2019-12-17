@@ -4,7 +4,13 @@ services:
   nginx_reverseproxy:
     container_name: nginx_reverseproxy
     hostname: nginx_reverseproxy
-    image: m120/docker-nginx-reverseproxy
+    image: nginx_reverseproxy
+    build:
+      context: ./nginx/
+      dockerfile: ./Dockerfile_localbuild
+      args:
+        - PROXY_URL=${PROXY_URL}
+        - TIMEZONE=${TIMEZONE}
     ports:
       - ${ALLOW_IPADDR}:8080:8080
       - ${ALLOW_IPADDR}:8123:8123
