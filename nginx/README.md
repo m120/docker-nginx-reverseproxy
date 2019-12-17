@@ -27,3 +27,22 @@ server accepts handled requests
  660 660 660 
 Reading: 0 Writing: 1 Waiting: 0 
 ```
+
+
+### Cloud Run
+- GCPのCloudShell
+
+- DockeHubから image pull
+````
+$ docker image pull m120/docker-nginx-reverseproxy
+```
+
+- tag つける
+```
+$ docker tag m120/docker-nginx-reverseproxy gcr.io/basecamp-187815/docker-nginx-reverseproxy
+```
+
+- gcrにpush
+```
+$ docker push gcr.io/basecamp-187815/docker-nginx-reverseproxy
+```
