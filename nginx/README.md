@@ -39,10 +39,10 @@ $ docker image pull m120/docker-nginx-reverseproxy
 
 - tag つける
 ```
-$ docker tag m120/docker-nginx-reverseproxy gcr.io/basecamp-187815/docker-nginx-reverseproxy
+$ docker tag m120/docker-nginx-reverseproxy gcr.io/{GCP Project ID}/docker-nginx-reverseproxy
 ```
 
 - gcrにpush
 ```
-$ docker push gcr.io/basecamp-187815/docker-nginx-reverseproxy
+$ docker push gcr.io/{GCP Project ID}/docker-nginx-reverseproxy
 ```
